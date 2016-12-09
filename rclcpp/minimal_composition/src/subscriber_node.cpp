@@ -19,7 +19,7 @@
 SubscriberNode::SubscriberNode()
 : Node("subscriber_node")
 {
-  subscription_ = create_subscription<std_msgs::msg::String>(
+  subscription_ = create_subscription(
     "topic",
     [this](std_msgs::msg::String::UniquePtr msg) {
     RCLCPP_INFO(this->get_logger(), "Subscriber: '%s'", msg->data.c_str())

@@ -17,6 +17,9 @@ find_package(std_msgs REQUIRED)
 add_executable(subscriber_lambda lambda.cpp)
 ament_target_dependencies(subscriber_lambda rclcpp std_msgs)
 
+add_executable(subscriber_lambda_explicit_subscription lambda_explicit_subscription.cpp)
+ament_target_dependencies(subscriber_lambda_explicit_subscription rclcpp std_msgs)
+
 add_executable(subscriber_member_function member_function.cpp)
 ament_target_dependencies(subscriber_member_function rclcpp std_msgs)
 
@@ -25,6 +28,7 @@ ament_target_dependencies(subscriber_not_composable rclcpp std_msgs)
 
 install(TARGETS
   subscriber_lambda
+  subscriber_lambda_explicit_subscription
   subscriber_member_function
   subscriber_not_composable
   DESTINATION lib/${PROJECT_NAME})
